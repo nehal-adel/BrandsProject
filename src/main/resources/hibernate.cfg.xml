@@ -49,5 +49,11 @@ Contributor(s):
     <mapping class="com.brands.dao.Category"/>
     <mapping class="com.brands.dao.CreditAdding"/>
     <mapping class="com.brands.dao.Products"/>
+    <mapping class="com.mycompany.brandsproject.Category"/>
+    <mapping class="com.mycompany.brandsproject.Cart"/>
+    <mapping class="com.mycompany.brandsproject.Products"/>
+    <mapping class="com.mycompany.brandsproject.Users"/>
+    <mapping class="com.mycompany.brandsproject.CreditAdding"/>
+    <mapping class="com.mycompany.brandsproject.CartId"/>
   </session-factory>
 </hibernate-configuration>
