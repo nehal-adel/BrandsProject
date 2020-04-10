@@ -1,5 +1,5 @@
 package com.brands.dao;
-// Generated Apr 9, 2020, 8:56:42 PM by Hibernate Tools 4.3.1
+// Generated Apr 10, 2020, 4:17:50 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,8 +11,8 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,7 +31,7 @@ public class Products  implements java.io.Serializable {
      private int quantity;
      private double price;
      private String describtion;
-     private Set<Users> userses = new HashSet<Users>(0);
+     private Set<Cart> carts = new HashSet<Cart>(0);
 
     public Products() {
     }
@@ -41,13 +41,13 @@ public class Products  implements java.io.Serializable {
         this.quantity = quantity;
         this.price = price;
     }
-    public Products(Category category, String name, int quantity, double price, String describtion, Set<Users> userses) {
+    public Products(Category category, String name, int quantity, double price, String describtion, Set<Cart> carts) {
        this.category = category;
        this.name = name;
        this.quantity = quantity;
        this.price = price;
        this.describtion = describtion;
-       this.userses = userses;
+       this.carts = carts;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -112,13 +112,13 @@ public class Products  implements java.io.Serializable {
         this.describtion = describtion;
     }
 
-@ManyToMany(fetch=FetchType.LAZY, mappedBy="productses")
-    public Set<Users> getUserses() {
-        return this.userses;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="products")
+    public Set<Cart> getCarts() {
+        return this.carts;
     }
     
-    public void setUserses(Set<Users> userses) {
-        this.userses = userses;
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
     }
 
 

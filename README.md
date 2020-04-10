@@ -1,1 +1,2 @@
-# BrandsProject
+# Brands
+JSP and Servlet Project

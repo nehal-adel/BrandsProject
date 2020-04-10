@@ -1,5 +1,5 @@
 package com.brands.dao;
-// Generated Apr 9, 2020, 8:56:42 PM by Hibernate Tools 4.3.1
+// Generated Apr 10, 2020, 4:17:50 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,9 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,7 +37,7 @@ public class Users  implements java.io.Serializable {
      private Double creditLimit;
      private int role;
      private String address;
-     private Set<Products> productses = new HashSet<Products>(0);
+     private Set<Cart> carts = new HashSet<Cart>(0);
 
     public Users() {
     }
@@ -51,7 +49,7 @@ public class Users  implements java.io.Serializable {
         this.EMail = EMail;
         this.role = role;
     }
-    public Users(String userName, String password, Date birthDate, String job, String EMail, Double creditLimit, int role, String address, Set<Products> productses) {
+    public Users(String userName, String password, Date birthDate, String job, String EMail, Double creditLimit, int role, String address, Set<Cart> carts) {
        this.userName = userName;
        this.password = password;
        this.birthDate = birthDate;
@@ -60,7 +58,7 @@ public class Users  implements java.io.Serializable {
        this.creditLimit = creditLimit;
        this.role = role;
        this.address = address;
-       this.productses = productses;
+       this.carts = carts;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -155,16 +153,13 @@ public class Users  implements java.io.Serializable {
         this.address = address;
     }
 
-@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="cart", catalog="brands", joinColumns = { 
-        @JoinColumn(name="user_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="product_id", nullable=false, updatable=false) })
-    public Set<Products> getProductses() {
-        return this.productses;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="users")
+    public Set<Cart> getCarts() {
+        return this.carts;
     }
     
-    public void setProductses(Set<Products> productses) {
-        this.productses = productses;
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
     }
 
 
