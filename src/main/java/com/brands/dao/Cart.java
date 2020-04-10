@@ -1,16 +1,13 @@
 package com.brands.dao;
-// Generated Apr 10, 2020, 4:17:50 PM by Hibernate Tools 4.3.1
+// Generated Apr 10, 2020, 7:31:12 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,59 +22,33 @@ import javax.persistence.TemporalType;
 public class Cart  implements java.io.Serializable {
 
 
-     private CartId id;
-     private Products products;
-     private Users users;
+     private int cartId;
      private Date buyingDate;
+     private Users user ;
 
     public Cart() {
     }
 
 	
-    public Cart(CartId id, Products products, Users users) {
-        this.id = id;
-        this.products = products;
-        this.users = users;
+    public Cart(int cartId) {
+        this.cartId = cartId;
     }
-    public Cart(CartId id, Products products, Users users, Date buyingDate) {
-       this.id = id;
-       this.products = products;
-       this.users = users;
+    public Cart(int cartId, Date buyingDate, Users user) {
+       this.cartId = cartId;
        this.buyingDate = buyingDate;
+       this.user = user;
     }
    
-     @EmbeddedId
+     @Id 
 
     
-    @AttributeOverrides( {
-        @AttributeOverride(name="userId", column=@Column(name="user_id", nullable=false) ), 
-        @AttributeOverride(name="productId", column=@Column(name="product_id", nullable=false) ) } )
-    public CartId getId() {
-        return this.id;
+    @Column(name="cart_id", unique=true, nullable=false)
+    public int getCartId() {
+        return this.cartId;
     }
     
-    public void setId(CartId id) {
-        this.id = id;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="product_id", nullable=false, insertable=false, updatable=false)
-    public Products getProducts() {
-        return this.products;
-    }
-    
-    public void setProducts(Products products) {
-        this.products = products;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="user_id", nullable=false, insertable=false, updatable=false)
-    public Users getUsers() {
-        return this.users;
-    }
-    
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -88,6 +59,15 @@ public class Cart  implements java.io.Serializable {
     
     public void setBuyingDate(Date buyingDate) {
         this.buyingDate = buyingDate;
+    }
+
+@OneToOne(fetch=FetchType.LAZY, mappedBy="cart")
+    public Users getUserses() {
+        return this.user;
+    }
+    
+    public void setUserses(Users user) {
+        this.user = user;
     }
 
 

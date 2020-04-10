@@ -1,9 +1,7 @@
 package com.brands.dao;
-// Generated Apr 10, 2020, 4:17:50 PM by Hibernate Tools 4.3.1
+// Generated Apr 10, 2020, 7:31:12 PM by Hibernate Tools 4.3.1
 
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +10,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,27 +24,28 @@ public class Products  implements java.io.Serializable {
 
      private Integer productId;
      private Category category;
+     private Users users;
      private String name;
      private int quantity;
      private double price;
      private String describtion;
-     private Set<Cart> carts = new HashSet<Cart>(0);
 
     public Products() {
     }
 
 	
-    public Products(int quantity, double price) {
+    public Products(Users users, int quantity, double price) {
+        this.users = users;
         this.quantity = quantity;
         this.price = price;
     }
-    public Products(Category category, String name, int quantity, double price, String describtion, Set<Cart> carts) {
+    public Products(Category category, Users users, String name, int quantity, double price, String describtion) {
        this.category = category;
+       this.users = users;
        this.name = name;
        this.quantity = quantity;
        this.price = price;
        this.describtion = describtion;
-       this.carts = carts;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -70,6 +68,16 @@ public class Products  implements java.io.Serializable {
     
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="user_id", nullable=false)
+    public Users getUsers() {
+        return this.users;
+    }
+    
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     
@@ -110,15 +118,6 @@ public class Products  implements java.io.Serializable {
     
     public void setDescribtion(String describtion) {
         this.describtion = describtion;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="products")
-    public Set<Cart> getCarts() {
-        return this.carts;
-    }
-    
-    public void setCarts(Set<Cart> carts) {
-        this.carts = carts;
     }
 
 
