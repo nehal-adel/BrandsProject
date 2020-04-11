@@ -13,5 +13,6 @@ public class Test {
         session.beginTransaction();
         session.persist(user);
         session.getTransaction().commit();
+        System.out.println("done");
     }
 }

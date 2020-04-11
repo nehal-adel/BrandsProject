@@ -1,4 +1,12 @@
+com\brands\dto\ProductDto.class
+com\brands\dao\Users.class
+com\brands\dto\CartDto.class
 com\brands\dao\CreditAdding.class
+com\brands\dto\MySessionFactory.class
+com\brands\dto\UserStatus.class
+com\brands\dao\Cart.class
 com\brands\dao\Category.class
 com\brands\dao\Products.class
-com\brands\dao\Users.class
+com\brands\dto\UserDto.class
+com\brands\dto\Role.class
+com\brands\dto\Test.class
