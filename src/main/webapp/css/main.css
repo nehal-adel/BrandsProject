@@ -470,7 +470,7 @@ ul.sub-menu {
 }
 
 .footer-widget .container {
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid #red;
   padding-top: 15px;
 }
 
@@ -546,7 +546,7 @@ ul.sub-menu {
 
 .footer-bottom {
   background: #D6D6D0;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 .footer-bottom p {
