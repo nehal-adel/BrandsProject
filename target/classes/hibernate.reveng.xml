@@ -42,8 +42,8 @@ Contributor(s):
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="brands"/>
   <table-filter match-name="users"/>
+  <table-filter match-name="products"/>
+  <table-filter match-name="category"/>
   <table-filter match-name="cart"/>
   <table-filter match-name="credit_adding"/>
-  <table-filter match-name="category"/>
-  <table-filter match-name="products"/>
 </hibernate-reverse-engineering>

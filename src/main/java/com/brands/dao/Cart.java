@@ -1,13 +1,15 @@
 package com.brands.dao;
-// Generated Apr 10, 2020, 7:31:12 PM by Hibernate Tools 4.3.1
+// Generated Apr 14, 2020, 12:58:51 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,7 +26,7 @@ public class Cart  implements java.io.Serializable {
 
      private int cartId;
      private Date buyingDate;
-     private Users user ;
+     private Set<Users> userses = new HashSet<Users>(0);
 
     public Cart() {
     }
@@ -33,10 +35,10 @@ public class Cart  implements java.io.Serializable {
     public Cart(int cartId) {
         this.cartId = cartId;
     }
-    public Cart(int cartId, Date buyingDate, Users user) {
+    public Cart(int cartId, Date buyingDate, Set<Users> userses) {
        this.cartId = cartId;
        this.buyingDate = buyingDate;
-       this.user = user;
+       this.userses = userses;
     }
    
      @Id 
@@ -61,13 +63,13 @@ public class Cart  implements java.io.Serializable {
         this.buyingDate = buyingDate;
     }
 
-@OneToOne(fetch=FetchType.LAZY, mappedBy="cart")
-    public Users getUserses() {
-        return this.user;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="cart")
+    public Set<Users> getUserses() {
+        return this.userses;
     }
     
-    public void setUserses(Users user) {
-        this.user = user;
+    public void setUserses(Set<Users> userses) {
+        this.userses = userses;
     }
 
 

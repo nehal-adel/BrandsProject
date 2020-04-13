@@ -44,16 +44,11 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/brands?zeroDateTimeBehavior=CONVERT_TO_NULL</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.password">nour</property>
     <mapping class="com.brands.dao.Users"/>
-    <mapping class="com.brands.dao.Category"/>
     <mapping class="com.brands.dao.CreditAdding"/>
     <mapping class="com.brands.dao.Products"/>
-    <mapping class="com.mycompany.brandsproject.Category"/>
-    <mapping class="com.mycompany.brandsproject.Cart"/>
-    <mapping class="com.mycompany.brandsproject.Products"/>
-    <mapping class="com.mycompany.brandsproject.Users"/>
-    <mapping class="com.mycompany.brandsproject.CreditAdding"/>
-    <mapping class="com.mycompany.brandsproject.CartId"/>
+    <mapping class="com.brands.dao.Cart"/>
+    <mapping class="com.brands.dao.Category"/>
   </session-factory>
 </hibernate-configuration>

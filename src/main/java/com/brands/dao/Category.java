@@ -1,5 +1,5 @@
 package com.brands.dao;
-// Generated Apr 10, 2020, 7:31:12 PM by Hibernate Tools 4.3.1
+// Generated Apr 14, 2020, 12:58:51 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

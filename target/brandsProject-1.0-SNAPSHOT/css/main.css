@@ -470,7 +470,7 @@ ul.sub-menu {
 }
 
 .footer-widget .container {
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid #red;
   padding-top: 15px;
 }
 
@@ -546,7 +546,8 @@ ul.sub-menu {
 
 .footer-bottom {
   background: #D6D6D0;
-  padding-top: 10px;
+  padding-top: 15px;
+  margin-top:90px; 
 }
 
 .footer-bottom p {
@@ -2518,6 +2519,48 @@ h2.title {
 
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
+}
+
+#myTable_length{
+    width: 50% !important;
+}
+#table1 {
+    width: 100% !important;
+
+    text-align: center;
+}
+#table1 tr{
+    height: 55px !important;
+    padding: 10px 0px;
+}
+#table1 th{
+    text-align: center !important;
+    border-color: #fdb45e;
+    padding-top: 15px !important;
+}
+.addBtn{
+    width: 120px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    background:  #F0F0E9;
+    
+}
+.evenRaw{
+    background: #faebcc !important;
+}
+.oddRaw{
+    background: yello !important;
+}
+.col-sm-5{
+    
+     white-space: pre-line;
+    
+}
+#table1_info:before{
+   content:"\A ";
+     white-space: pre;
+    
+    
 }
 
 
