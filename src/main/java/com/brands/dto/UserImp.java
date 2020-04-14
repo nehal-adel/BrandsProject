@@ -19,14 +19,21 @@ public class UserImp implements UserDto {
 
         Double value = (Double) query.uniqueResult();
         if (value != null) {
-            //   if( user.getCreditLimit()!=null){
-            Double valueTwo = user.getCreditLimit() + value;
-            user.setCreditLimit(valueTwo);
-            session.beginTransaction();
-            session.update(user);
-            session.getTransaction().commit();
-            return true;
+            if (user.getCreditLimit() != null) {
+                Double valueTwo = user.getCreditLimit() + value;
+                user.setCreditLimit(valueTwo);
+                session.beginTransaction();
+                session.update(user);
+                session.getTransaction().commit();
+                return true;
+            } else {
+                user.setCreditLimit(value);
+                session.beginTransaction();
+                session.update(user);
+                session.getTransaction().commit();
 
+                return true;
+            }
 
         } else {
             return false;
