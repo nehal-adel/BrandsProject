@@ -1,5 +1,5 @@
 package com.brands.dao;
-// Generated Apr 14, 2020, 8:18:36 PM by Hibernate Tools 4.3.1
+// Generated Apr 15, 2020, 12:12:47 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -39,32 +39,36 @@ public class Users  implements java.io.Serializable {
      private String EMail;
      private Double creditLimit;
      private int role;
-     private String address;
-     private String status;
+    private String address;
+    private int cartId;
+    private String status;
      private Set<Products> productses = new HashSet<Products>(0);
 
     public Users() {
     }
 
-	
+
     public Users(Cart cart, String userName, String password, String EMail, int role) {
         this.cart = cart;
         this.userName = userName;
         this.password = password;
         this.EMail = EMail;
         this.role = role;
+
     }
-    public Users(Cart cart, String userName, String password, Date birthDate, String job, String EMail, Double creditLimit, int role, String address, String status, Set<Products> productses) {
-       this.cart = cart;
-       this.userName = userName;
-       this.password = password;
-       this.birthDate = birthDate;
-       this.job = job;
-       this.EMail = EMail;
-       this.creditLimit = creditLimit;
-       this.role = role;
-       this.address = address;
-       this.status = status;
+
+    public Users(Cart cart, String userName, String password, Date birthDate, String job, String EMail, Double creditLimit, int role, String address, int cartId, String status, Set<Products> productses) {
+        this.cart = cart;
+        this.userName = userName;
+        this.password = password;
+        this.birthDate = birthDate;
+        this.job = job;
+        this.EMail = EMail;
+        this.creditLimit = creditLimit;
+        this.role = role;
+        this.address = address;
+        this.cartId = cartId;
+        this.status = status;
        this.productses = productses;
     }
    
@@ -80,8 +84,8 @@ public class Users  implements java.io.Serializable {
         this.userId = userId;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="cart_id", nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_cart_id", nullable = false)
     public Cart getCart() {
         return this.cart;
     }
@@ -160,27 +164,37 @@ public class Users  implements java.io.Serializable {
         this.role = role;
     }
 
-    
-    @Column(name="address", length=45)
+
+    @Column(name = "address", length = 45)
     public String getAddress() {
         return this.address;
     }
-    
+
     public void setAddress(String address) {
         this.address = address;
     }
 
-    
-    @Column(name="status", length=45)
+
+    @Column(name = "cart_id", nullable = false)
+    public int getCartId() {
+        return this.cartId;
+    }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
+
+
+    @Column(name = "status", length = 45)
     public String getStatus() {
         return this.status;
     }
-    
+
     public void setStatus(String status) {
         this.status = status;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="users")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
     public Set<Products> getProductses() {
         return this.productses;
     }

@@ -1,12 +1,10 @@
 package com.brands.dao;
-// Generated Apr 14, 2020, 8:18:36 PM by Hibernate Tools 4.3.1
+// Generated Apr 15, 2020, 12:12:47 AM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,43 +20,46 @@ import javax.persistence.Table;
 public class Products  implements java.io.Serializable {
 
 
-     private Integer productId;
-     private Category category;
+    private int productId;
+    private Category category;
      private Users users;
-     private String name;
-     private int quantity;
-     private double price;
-     private String describtion;
-     private byte[] image;
+    private String name;
+    private int quantity;
+    private double price;
+    private String describtion;
+    private byte[] image;
 
     public Products() {
     }
 
-	
-    public Products(Users users, int quantity, double price) {
+
+    public Products(int productId, Users users, int quantity, double price) {
+        this.productId = productId;
         this.users = users;
         this.quantity = quantity;
         this.price = price;
     }
-    public Products(Category category, Users users, String name, int quantity, double price, String describtion, byte[] image) {
-       this.category = category;
-       this.users = users;
-       this.name = name;
-       this.quantity = quantity;
-       this.price = price;
-       this.describtion = describtion;
-       this.image = image;
-    }
-   
-     @Id @GeneratedValue(strategy=IDENTITY)
 
-    
-    @Column(name="product_id", unique=true, nullable=false)
-    public Integer getProductId() {
+    public Products(int productId, Category category, Users users, String name, int quantity, double price, String describtion, byte[] image) {
+        this.productId = productId;
+        this.category = category;
+        this.users = users;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+        this.describtion = describtion;
+        this.image = image;
+    }
+
+    @Id
+
+
+    @Column(name = "product_id", unique = true, nullable = false)
+    public int getProductId() {
         return this.productId;
     }
-    
-    public void setProductId(Integer productId) {
+
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 

@@ -31,7 +31,7 @@ import java.util.List;
 
 public interface UserDto {
  /*nehal*/
- public boolean addCredit(String code);//make exceptions -> wrong code
+ public boolean addCredit(String code, Users user);//make exceptions -> wrong code
 
  public boolean updateCreditWhenBuying(int user_id);
 
@@ -45,11 +45,10 @@ public interface UserDto {
 
  public boolean login(Users user);
 
- public boolean register(Users user);
+    public boolean register(Users user, Cart cart);
 
- public boolean isExist(Users user);
 
- public boolean logOut(Users user);
+    public boolean logOut(Users user);
  /*nehal end*/
 
  /*badri*/
