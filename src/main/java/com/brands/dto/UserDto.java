@@ -30,23 +30,36 @@ import java.util.List;
 */
 
 public interface UserDto {
-    /*nehal*/
-     public boolean addCredit(String code);//make exceptions -> wrong code 
-     public boolean updateCreditWhenBuying(int user_id);
-     public boolean addUser(Users user);
-     public boolean updateUser(Users user);
-     public Users getUserById(int id);
-     public List<Users> getAllUsers();
-    /*nehal end*/
+ /*nehal*/
+ public boolean addCredit(String code);//make exceptions -> wrong code
 
-     /*badri*/
-    
-     /*badri end*/
-    
-    
-     /*noura*/
-    
-     /*noura end*/
+ public boolean updateCreditWhenBuying(int user_id);
+
+ public boolean addUser(Users user);
+
+ public boolean updateUser(Users user);
+
+ public Users getUserById(int id);
+
+ public List<Users> getAllUsers();
+
+ public boolean login(Users user);
+
+ public boolean register(Users user);
+
+ public boolean isExist(Users user);
+
+ public boolean logOut(Users user);
+ /*nehal end*/
+
+ /*badri*/
+
+ /*badri end*/
+
+
+ /*noura*/
+
+ /*noura end*/
     
     
      /*hesham*/
