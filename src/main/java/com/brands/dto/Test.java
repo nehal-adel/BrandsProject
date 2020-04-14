@@ -9,7 +9,8 @@ public class Test {
     static Session session = MySessionFactory.getMySession();
     public static void main(String[] args) {
         Cart cart = new Cart(1) ;
-        Users user =new Users(0, cart, "nonn", "nlknkfs", "dfsfs", 0);
+
+        Users user=new Users(cart, "nour", "pass", "@nour", 0);
         session.beginTransaction();
         session.persist(cart);
         session.persist(user);
