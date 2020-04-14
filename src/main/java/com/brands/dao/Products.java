@@ -1,10 +1,12 @@
 package com.brands.dao;
-// Generated Apr 14, 2020, 12:58:51 AM by Hibernate Tools 4.3.1
+// Generated Apr 14, 2020, 8:18:36 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,43 +22,43 @@ import javax.persistence.Table;
 public class Products  implements java.io.Serializable {
 
 
-     private int productId;
+     private Integer productId;
      private Category category;
      private Users users;
      private String name;
      private int quantity;
      private double price;
      private String describtion;
+     private byte[] image;
 
     public Products() {
     }
 
 	
-    public Products(int productId, Users users, int quantity, double price) {
-        this.productId = productId;
+    public Products(Users users, int quantity, double price) {
         this.users = users;
         this.quantity = quantity;
         this.price = price;
     }
-    public Products(int productId, Category category, Users users, String name, int quantity, double price, String describtion) {
-       this.productId = productId;
+    public Products(Category category, Users users, String name, int quantity, double price, String describtion, byte[] image) {
        this.category = category;
        this.users = users;
        this.name = name;
        this.quantity = quantity;
        this.price = price;
        this.describtion = describtion;
+       this.image = image;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="product_id", unique=true, nullable=false)
-    public int getProductId() {
+    public Integer getProductId() {
         return this.productId;
     }
     
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
@@ -118,6 +120,16 @@ public class Products  implements java.io.Serializable {
     
     public void setDescribtion(String describtion) {
         this.describtion = describtion;
+    }
+
+    
+    @Column(name="image")
+    public byte[] getImage() {
+        return this.image;
+    }
+    
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
 

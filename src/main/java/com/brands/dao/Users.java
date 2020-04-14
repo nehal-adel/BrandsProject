@@ -1,5 +1,5 @@
 package com.brands.dao;
-// Generated Apr 14, 2020, 12:58:51 AM by Hibernate Tools 4.3.1
+// Generated Apr 14, 2020, 8:18:36 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,7 +30,7 @@ import javax.persistence.UniqueConstraint;
 public class Users  implements java.io.Serializable {
 
 
-     private int userId;
+     private Integer userId;
      private Cart cart;
      private String userName;
      private String password;
@@ -45,16 +47,14 @@ public class Users  implements java.io.Serializable {
     }
 
 	
-    public Users(int userId, Cart cart, String userName, String password, String EMail, int role) {
-        this.userId = userId;
+    public Users(Cart cart, String userName, String password, String EMail, int role) {
         this.cart = cart;
         this.userName = userName;
         this.password = password;
         this.EMail = EMail;
         this.role = role;
     }
-    public Users(int userId, Cart cart, String userName, String password, Date birthDate, String job, String EMail, Double creditLimit, int role, String address, String status, Set<Products> productses) {
-       this.userId = userId;
+    public Users(Cart cart, String userName, String password, Date birthDate, String job, String EMail, Double creditLimit, int role, String address, String status, Set<Products> productses) {
        this.cart = cart;
        this.userName = userName;
        this.password = password;
@@ -68,15 +68,15 @@ public class Users  implements java.io.Serializable {
        this.productses = productses;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="user_id", unique=true, nullable=false)
-    public int getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
     
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

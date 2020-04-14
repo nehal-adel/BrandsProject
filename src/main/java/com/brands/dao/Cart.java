@@ -1,5 +1,5 @@
 package com.brands.dao;
-// Generated Apr 14, 2020, 12:58:51 AM by Hibernate Tools 4.3.1
+// Generated Apr 14, 2020, 8:18:36 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
