@@ -14,11 +14,11 @@ public class Test {
         session.persist(cart);
         session.getTransaction().commit();
 
-        Users user = new Users(cart, "shimaa", "pass", "SS@", 0);
+        Users user = new Users(cart, "shimaa", "pass", "SS@", 1);
 
         session.beginTransaction();
 //        session.persist(cart);
-//         session.persist(user);
+        session.persist(user);
 
         session.getTransaction().commit();
         UserImp userImp = new UserImp();
@@ -26,7 +26,7 @@ public class Test {
 //        if(!userImp.login(user)){
 //            System.out.println("false");
 //        }
-        CreditAdding creditAdding = new CreditAdding("5555", 10000);
+        CreditAdding creditAdding = new CreditAdding("5005", 10000);
         session.beginTransaction();
         session.persist(creditAdding);
         session.getTransaction().commit();
