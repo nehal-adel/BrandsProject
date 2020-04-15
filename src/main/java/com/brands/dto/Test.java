@@ -1,7 +1,7 @@
 package com.brands.dto;
 
 import com.brands.dao.Cart;
-import com.brands.dao.CreditAdding;
+import com.brands.dao.Products;
 import com.brands.dao.Users;
 import org.hibernate.Session;
 
@@ -14,11 +14,11 @@ public class Test {
         session.persist(cart);
         session.getTransaction().commit();
 
-        Users user = new Users(cart, "shimaa", "pass", "SS@", 1);
+        Users user = new Users(cart, "shimaa", "pass", "SS0ss@", 1);
 
         session.beginTransaction();
-//        session.persist(cart);
-        session.persist(user);
+//       session.persist(cart);
+//        session.persist(user);
 
         session.getTransaction().commit();
         UserImp userImp = new UserImp();
@@ -26,14 +26,22 @@ public class Test {
 //        if(!userImp.login(user)){
 //            System.out.println("false");
 //        }
-        CreditAdding creditAdding = new CreditAdding("5005", 10000);
-        session.beginTransaction();
-        session.persist(creditAdding);
-        session.getTransaction().commit();
-        Users user1 = (Users) session.get(Users.class, 2);
-        userImp.addCredit(creditAdding.getCode(), user1);
-        // userImp.register(user,cart);
+//        CreditAdding creditAdding = new CreditAdding("500x", 10000);
+//        session.beginTransaction();
+//        session.persist(creditAdding);
+//        session.getTransaction().commit();
+        Users user1 = (Users) session.get(Users.class, 3);
+//        userImp.addCredit(creditAdding.getCode(), user1);
+//        // userImp.register(user,cart);
         System.out.println("done");
-        session.close();
+
+        Products products = new Products(2, user1.getCart(), user1, 2, 500);
+        session.beginTransaction();
+        session.persist(products);
+        session.getTransaction().commit();
+        userImp.updateCreditWhenBuying(user1);
+        System.out.println("done");
+
+
     }
 }
