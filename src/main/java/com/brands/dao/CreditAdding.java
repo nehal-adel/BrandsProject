@@ -1,5 +1,5 @@
 package com.brands.dao;
-// Generated Apr 15, 2020, 12:12:47 AM by Hibernate Tools 4.3.1
+// Generated Apr 15, 2020, 2:02:32 AM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
