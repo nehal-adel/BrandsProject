@@ -5,7 +5,9 @@
  */
 package com.brands.dto;
 
-import com.brands.dao.*;
+import com.brands.dao.Cart;
+import com.brands.dao.Users;
+
 import java.util.List;
 
 /**
@@ -33,7 +35,7 @@ public interface UserDto {
  /*nehal*/
  public boolean addCredit(String code, Users user);//make exceptions -> wrong code
 
- public boolean updateCreditWhenBuying(int user_id);
+    public boolean updateCreditWhenBuying(Users user);
 
  public boolean addUser(Users user);
 
