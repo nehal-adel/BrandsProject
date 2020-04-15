@@ -1,12 +1,14 @@
 package com.brands.dto;
 
 import com.brands.dao.Cart;
+import com.brands.dao.Products;
 import com.brands.dao.Users;
 import com.brands.utils.ValidateUser;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.util.List;
+import java.util.Set;
 
 public class UserImp implements UserDto {
     Session session = MySessionFactory.getMySession();
@@ -41,9 +43,37 @@ public class UserImp implements UserDto {
     }
 
     @Override
-    public boolean updateCreditWhenBuying(int user_id) {
+    public boolean updateCreditWhenBuying(Users user) {
+        String hql = "select cart from com.brands.dao.Users c where c.userId=?";
+
+        Query query = session.createQuery(hql).setParameter(0, user.getUserId());
+        Cart cart = (Cart) query.uniqueResult();
+
+        if (cart != null) {
+            Set<Products> products = cart.getProductses();
+            Double sum = 0.0;
+            Double amount = user.getCreditLimit();
+            for (Products aproducts : products) {
+                sum += aproducts.getPrice() * aproducts.getQuantity();
+
+            }
+            amount -= sum;
+            if (amount < 0) {
+                return false;
+            } else {
+                System.out.println(sum);
+                session.beginTransaction();
+                user.setCreditLimit(amount);
+                session.update(user);
+                session.getTransaction().commit();
+
+                return true;
+            }
+        }
+
         return false;
     }
+
 
     @Override
     public boolean addUser(Users user) {
