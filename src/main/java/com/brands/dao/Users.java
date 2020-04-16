@@ -176,14 +176,29 @@ public class Users  implements java.io.Serializable {
     public Set<Products> getProductses() {
         return this.productses;
     }
-    
+
     public void setProductses(Set<Products> productses) {
         this.productses = productses;
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId=" + userId +
+                ", cart=" + cart +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", birthDate=" + birthDate +
+                ", job='" + job + '\'' +
+                ", EMail='" + EMail + '\'' +
+                ", creditLimit=" + creditLimit +
+                ", role=" + role +
+                ", address='" + address + '\'' +
+                ", status='" + status + '\'' +
+                ", productses=" + productses +
+                '}';
+    }
 }
 
 
