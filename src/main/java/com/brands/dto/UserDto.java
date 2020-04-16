@@ -39,6 +39,8 @@ public interface UserDto {
 
  public boolean addUser(Users user);
 
+    public boolean loginNour(String EMail, String passwrod);
+
  public boolean updateUser(Users user);
 
  public Users getUserById(int id);
