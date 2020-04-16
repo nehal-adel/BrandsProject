@@ -95,6 +95,29 @@ public class UserImp implements UserDto {
         return null;
     }
 
+    public boolean loginNour(String EMail, String passwrod) {
+        String hql = "from com.brands.dao.Users c where c.EMail=? and c.password=?";
+
+        Query query = session.createQuery(hql);
+        query.setString(0, EMail);
+        query.setString(1, passwrod);
+
+        List<Users> value = query.list();
+        if (value != null && value.size() > 0) {
+            Users user = value.get(0);
+            user.setStatus("ONLINE");
+
+            System.out.println(user);
+            session.beginTransaction();
+            session.update(user);
+            session.getTransaction().commit();
+            return true;
+        }
+        return false;
+
+    }
+
+
     @Override
     public boolean login(Users user) {
         if (!ValidateUser.isExist(user)) {
