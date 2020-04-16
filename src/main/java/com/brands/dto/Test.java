@@ -14,7 +14,7 @@ public class Test {
         session.persist(cart);
         session.getTransaction().commit();
 
-        Users user = new Users(cart, "shimaa", "pass", "SS0ss@", 1);
+        Users user = new Users(cart, "nour", "pass", "nourrr@", 1);
 
         session.beginTransaction();
 //       session.persist(cart);
@@ -26,20 +26,27 @@ public class Test {
 //        if(!userImp.login(user)){
 //            System.out.println("false");
 //        }
-//        CreditAdding creditAdding = new CreditAdding("500x", 10000);
+//        CreditAdding creditAdding = new CreditAdding("501010x", 1500);
 //        session.beginTransaction();
 //        session.persist(creditAdding);
 //        session.getTransaction().commit();
-        Users user1 = (Users) session.get(Users.class, 3);
-//        userImp.addCredit(creditAdding.getCode(), user1);
-//        // userImp.register(user,cart);
-        System.out.println("done");
+//        Users user1 = (Users) session.get(Users.class, 3);
+        Users user2 = (Users) session.get(Users.class, 9);
+//        userImp.addCredit(creditAdding.getCode(), user2);
+//         userImp.register(user,cart);
+//        System.out.println("done");
 
-        Products products = new Products(2, user1.getCart(), user1, 2, 500);
+//        Products products = new Products(2, user1.getCart(), user1, 2, 500);
+//        session.beginTransaction();
+//        session.persist(products);
+//        session.getTransaction().commit();
+//        userImp.updateCreditWhenBuying(user1);
+//        System.out.println("done");
+        Products products = new Products(2, user2.getCart(), user2, 2, 1000);
         session.beginTransaction();
         session.persist(products);
         session.getTransaction().commit();
-        userImp.updateCreditWhenBuying(user1);
+        userImp.updateCreditWhenBuying(user2);
         System.out.println("done");
 
 
